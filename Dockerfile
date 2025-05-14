@@ -1,13 +1,5 @@
-FROM gapsystem/gap-docker
+FROM ghcr.io/limakzi/jupyter-gap:4.14.0-full
 
 COPY --chown=1000:1000 . $HOME/mygapproject
-
-RUN sudo pip3 install ipywidgets RISE
-
-RUN jupyter-nbextension install rise --user --py
-
-RUN jupyter-nbextension enable rise --user --py
-
-USER gap
 
 WORKDIR $HOME/mygapproject
